@@ -15,4 +15,11 @@ public class Station {
     }
 
     // 추가 기능 구현
+    public void addLine(Line line) {
+        this.lines.add(line);
+    }
+
+    public void removeLine(Line line) {
+        this.lines.remove(line);
+    }
 }
