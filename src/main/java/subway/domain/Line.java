@@ -14,29 +14,31 @@ public class Line {
         return name;
     }
 
-    // 추가 기능 구현
-    public ArrayList<Station> getStations() {
+    public ArrayList<Station> getStations(){
         return stations;
     }
 
-    public void addStation(Station station) {
-        if (this.stations.contains(station)) {
-            // 에러 상황! --> 추가하려는 역이 이미 해당 노선에 존재합니다.
-            return;
-        }
-        // 양방향 추가
+    // 추가 기능 구현
+    public void addStation(Station station) { // 양방향 추가
         stations.add(station);
         station.addLine(this);
     }
 
-    public void removeStation(Station station) {
-        if (!this.stations.contains(station)) {
-            // 에러 상황! --> 삭제하려는 역이 해당 노선에 존재하지 않습니다.
-            return;
-        }
-        // 양방향 삭제
+    public void removeStation(Station station) { // 양방향 삭제
         stations.remove(station);
         station.removeLine(this);
     }
 
+    public void addSection(Station station, int ind){
+        if(stations.contains(stations)){
+            Logger.error("이미 존재하는 구간입니다.");
+            return;
+        }
+        if(stations.size() < ind){
+            Logger.error("노선의 구간 수보다 큰 값입니다.");
+            return;
+        }
+        stations.add(ind, station);
+        Logger.info("구간이 등록되었습니다.");
+    }
 }
