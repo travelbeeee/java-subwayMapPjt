@@ -14,6 +14,10 @@ public class Station {
         return name;
     }
 
+    public ArrayList<Line> getLines(){
+        return lines;
+    }
+
     // 추가 기능 구현
     public void addLine(Line line) {
         this.lines.add(line);
