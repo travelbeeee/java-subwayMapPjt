@@ -41,4 +41,13 @@ public class Line {
         stations.add(ind, station);
         Logger.info("구간이 등록되었습니다.");
     }
+
+    public void removeSection(Station station) {
+        if (!stations.contains(station)) {
+            Logger.error("존재하지않는 역입니다.");
+            return;
+        }
+        stations.remove(station);
+        Logger.info("구간이 삭제되었습니다.");
+    }
 }
